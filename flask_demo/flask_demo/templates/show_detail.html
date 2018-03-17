@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block body %}
+<div class = "container">
+    {% if session.logged_in %}
+        <ul>
+            {% for entry in fi %}
+                {% if entry.u_name == u %}
+                    <li class="li"><h2>{{ entry.title }}</h2>{{ entry.text|safe }}</li>
+                    <li><a class="link" href="{{ url_for('edit',a=entry.id) }}">Edit Details</a></li> 
+                    <li><a class="link" href="{{ url_for('delete',de=entry.id) }}">Delete</a></li>
+                    <br/>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+    </div>
+{% endblock %}

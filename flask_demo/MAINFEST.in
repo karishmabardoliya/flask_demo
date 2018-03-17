@@ -1,0 +1,3 @@
+graft flask_demo/templates
+graft flask_demo/static
+include flask_demo/schema.sql

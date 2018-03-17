@@ -1,0 +1,23 @@
+{% extends "index.html" %}    
+{% block body %}
+<div class = "container">
+    <h3><b>Update Details</b></h3>
+
+    
+    {% if session.logged_in %}
+        {% for i in fi %}
+        <form action="{{ url_for('update',a=a) }}" method=post>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name = "title" value="{{ i.title }}" placeholder="Enter Title" required>
+            </div>
+            <div class="form-group">
+                <label>Text</label>
+                <textarea class="form-control" name=text rows=5 cols=40 required="required">{{ i.text }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        {% endfor %} 
+    {% endif %}
+ </div>   
+{% endblock %}
